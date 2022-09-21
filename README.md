@@ -63,12 +63,12 @@ Compile the binary and you are ready to go:
     $ export GOPATH=$HOME/go
     $ git clone https://github.com/ImranTheThirdEye/Modlishka.git
     $ cd Modlishka
-    $ make
     $ openssl genrsa -out MyCA.key 2048
     $ openssl req -x509 -new -nodes -key MaCA.key -sha256 -day 1024 -out MyCA.pem
     $ cat MaCA.key copy certificate and paste [ plugin-autocert.go ] const CA_CERT_KEY =
     $ cat MyCA.pem copy certificate and paste [ plugin-autocert.go ] const CA_CERT = 
     save
+    $ make
     $ cd dist
     $ ./proxy -h
     now we can set template as we need 
