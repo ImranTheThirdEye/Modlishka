@@ -55,28 +55,29 @@ Modlishka in action against an example two factor authentication scheme (SMS bas
 
 Installation
 ------------
-
-Latest source code version can be fetched from [here](https://github.com/drk1wi/modlishka/zipball/master) (zip) or [here](https://github.com/drk1wi/modlishka/tarball/master) (tar).
-
-
-
-Fetch the code with _'go install'_ :
-
-    $ go install github.com/drk1wi/Modlishka
-
 Compile the binary and you are ready to go:
 
-    $ git clone https://github.com/drk1wi/Modlishka.git
+    $ apt-get update && apt-get upgrade -y
+    $ apt install golang
+    $ cd ~
+    $ export GOPATH=$HOME/go
+    $ git clone https://github.com/ImranTheThirdEye/Modlishka.git
     $ cd Modlishka
     $ make
+    $ openssl genrsa -out MyCA.key 2048
+    $ openssl req -x509 -new -nodes -key MaCA.key -sha256 -day 1024 -out MyCA.pem
+    $ cat MaCA.key copy certificate and paste [ plugin-autocert.go ] const CA_CERT_KEY =
+    $ cat MyCA.pem copy certificate and paste [ plugin-autocert.go ] const CA_CERT = 
+    save
+    $ cd dist
+    $ ./proxy -h
+    now we can set template as we need 
+    $ ./proxy -config ../templates/google.com_gsuite.json
     
     
 ![alt text](https://github.com/drk1wi/assets/raw/master/0876a672f771046e833f2242f6be5d3cf01519efdbb9dad0e1ed2d33e33fecbc.png)
-
-    # ./dist/proxy -h
-  
     
-    Usage of ./dist/proxy:
+        Usage of ./dist/proxy:
           
       -cert string
         	base64 encoded TLS certificate
